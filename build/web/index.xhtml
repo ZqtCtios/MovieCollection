@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>I love movies!</title>
+    </h:head>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+<link href="css/css-index.css" rel="stylesheet" media="screen"/>
+    <h:body>
+        <h:form>
+        <div class="fullscreen landing parallax" style="background-image:url('img/background.jpg');" data-img-width="2000" data-img-height="1333" data-diff="100">
+    <div class="overlay">
+	<div class="container">
+		<div class="row">
+                 <div class="col-md-7">
+				
+					<!-- /.logo -->
+					<div class="logo wow fadeInDown"> <a href=""><img src="img/logo.png" alt="logo"/></a></div>
+
+					<!-- /.main title -->
+						<h1 class="wow fadeInLeft">
+						个人电影搜索收藏推荐系统
+						</h1>
+
+					<!-- /.header paragraph -->
+					<div class="landing-text wow fadeInUp">
+						<p> 本网站提供豆瓣评分搜索，个人电影收藏，电影推荐，电影评价等功能对，乃电影爱好者的必备神器</p>
+					</div>
+                 </div>
+				<div class="col-md-5">
+				
+					<div class="signup-header wow fadeInUp">
+						<h3 class="form-title text-center">请登录</h3>
+					
+							<div class="form-group">
+                                                   
+                                                            <h:inputText styleClass="form-control input-lg" p:placeholder="用户名" value="#{login.uid}" />
+                                                       
+							</div>
+                                                
+							<div class="form-group">
+                                                      
+                                                             <h:inputSecret  styleClass="form-control input-lg" p:placeholder="密码" value="#{login.password}" />
+                                                      
+							</div>
+							<div class="form-group last">
+                                                         
+                                                                <h:commandButton  styleClass="btn btn-warning btn-block btn-lg" value="确定" action="#{login.test()}"/>
+                                                         
+							
+							</div>
+                                                
+                                                <p class="form-title text-center"><h:outputText value="#{login.msg}"/></p>
+							<p class="privacy text-center">如果你还没有账号，请                    
+                                                            <h:outputLink value="signUp.xhtml">
+                                                        <h:outputText value="注册"/>
+                                                             </h:outputLink></p>
+                                                        
+					</div>				
+				
+				</div>
+			</div>
+		</div> 
+	</div> 
+</div>
+ <footer id="footer">
+	<div class="container">
+		<div class="col-sm-4 col-sm-offset-4">
+			<div class="text-center wow fadeInUp" style="font-size: 14px;">制作人：曾庆涛 杨正昱 陈兆伦 张子康 张英凯 韩瑞卿</div>
+			<a href="#" class="scrollToTop"><i class="pe-7s-up-arrow pe-va"></i></a>
+		</div>	
+	</div>	
+</footer>
+       </h:form>
+
+ 
+    </h:body>
+</html>
+

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+            xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+            <title>I Love Movies!</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/custom-styles.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+           
+                <a class="navbar-brand" href="index.html"><strong><i class="icon fa fa-plane"></i> 爱电影</strong></a>
+		
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                                <li class="dropdown">
+                 
+                                    <h:commandButton value="登出" action="index.xhtml" class="btn btn-danger"/>
+								
+                    
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+  
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <h:link value="每日推荐" outcome="#{recommend.work()}" styleClass="active-menu"/>
+                    </li>
+                    <li>
+                        <h:link value="搜索" outcome="search.xhtml" />
+                    </li> 
+					                   
+                    <li>
+                        <h:link value="豆瓣Top" outcome="#{showMovie.work()}"/>
+                    </li>
+                    
+                    <li>
+                       
+                        <h:link value="我的收藏" outcome="#{collection.work()}"  />
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+   
+      
+		<div id="page-wrapper">
+			<div class="header"> 
+                        <h1 class="page-header">
+                            新片推荐 <small>当前用户：<h:outputText value="#{login.name}"/></small>
+                        </h1>
+		
+                            <div class="divcss1">
+                            
+                                
+                            <h:dataTable value="#{recommend.m}" var="o"   columnClasses="list-column1-center,list-column2-center,list-column3-center,
+                                                            list-column4-center,list-column5-center">
+
+                <h:column>
+                    <f:facet name="header">
+                    </f:facet>
+                    <h:graphicImage value="#{o.n.pic}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">   
+                    </f:facet>
+                    <h:outputLink value="#{o.n.page}">
+                        <h:outputText value="#{o.n.name}"/>
+                    </h:outputLink>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:outputText value="#{o.n.pf}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                      <h:outputText value="#{o.n.msg}"/>
+                    
+                </h:column>
+                    <h:column>
+                    <f:facet name="header"></f:facet>
+                 
+                    <h:commandButton value="已收藏"  styleClass="btn1 btn-danger1" action="#{recommend.collect(o)}" rendered="#{o.isCollected}"/>
+                    <h:commandButton value="未收藏"  styleClass="btn1 btn-success" action="#{recommend.collect(o)}" rendered="#{not o.isCollected}"/>
+
+                </h:column>
+            </h:dataTable> 
+                        </div>
+			</div>
+
+        </div>
+      
+    </div>
+
+
+        </h:form>
+    </h:body>
+</html>
+

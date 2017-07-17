@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>管理员</title>
+
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <h:commandButton value="刷新"  action="#{managerBean.work()}"/>
+
+            <div>
+                
+                    
+                        <h1><h:outputText value="管理用户" rendered="#{managerBean.yes}" /></h1>
+                        <h:dataTable value="#{managerBean.u}" var="item" rendered="#{managerBean.yes}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Uid"/>
+                                </f:facet>
+                                <h:inputText value="#{item.uid}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Name"/>
+                                </f:facet>
+                                <h:inputText value="#{item.name}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Password"/>
+                                </f:facet>
+                                <h:inputText value="#{item.password}"/>
+                            </h:column>
+                      <h:column>
+      
+                                <h:commandButton value="删除" action="#{managerBean.delectU(item)}"/>
+                            </h:column>
+                        </h:dataTable>
+                                    <h:commandButton value="确定修改" rendered="#{managerBean.yes}" action="#{managerBean.flushU()}"/>
+                        
+                
+                
+
+
+                    
+                        <h1><h:outputText value="管理收藏" rendered="#{managerBean.yes}" /></h1>
+                        <h:dataTable value="#{managerBean.c}" var="item" rendered="#{managerBean.yes}" >
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Uid"/>
+                                </f:facet>
+                                <h:inputText value="#{item.collectPK.uid}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Mid"/>
+                                </f:facet>
+                                <h:inputText value="#{item.collectPK.mid}"/>
+                            </h:column>
+                            <h:column>
+      
+                                <h:commandButton value="删除" action="#{managerBean.delectC(item)}"/>
+                            </h:column>
+                        </h:dataTable>
+                                    <h:commandButton value="确定修改" rendered="#{managerBean.yes}" action="#{managerBean.flushC()}"/>
+                    
+                
+                
+
+
+                    
+                        <h1><h:outputText value="管理电影" rendered="#{managerBean.yes}" /></h1>
+                        <h:dataTable value="#{managerBean.m}" var="item" rendered="#{managerBean.yes}">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Mid"/>
+                                </f:facet>
+                                <h:inputText value="#{item.mid}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Name"/>
+                                </f:facet>
+                                <h:inputText value="#{item.name}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Pf"/>
+                                </f:facet>
+                                <h:inputText value="#{item.pf}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Rank"/>
+                                </f:facet>
+                                <h:inputText value="#{item.rank}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Msg"/>
+                                </f:facet>
+                                <h:inputText value="#{item.msg}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Pic"/>
+                                </f:facet>
+                                <h:inputText value="#{item.pic}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Ct"/>
+                                </f:facet>
+                                <h:inputText value="#{item.ct}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Page"/>
+                                </f:facet>
+                                <h:inputText value="#{item.page}"/>
+                            </h:column>
+                                                  <h:column>
+      
+                                <h:commandButton value="删除" action="#{managerBean.delectM(item)}"/>
+                            </h:column>
+                        </h:dataTable>
+                                    <h:commandButton value="确定修改" rendered="#{managerBean.yes}" action="#{managerBean.flushM()}"/>
+                    
+                
+
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
